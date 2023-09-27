@@ -16,6 +16,4 @@ The Car Management System is a web application designed to efficiently manage in
 
 - **React Frontend**: Integrate a user-friendly React frontend to interact with the system, making it accessible through a modern web interface.
 
-- **Search and Filtering**: Implement search and filtering functionality to enable users to quickly locate specific cars or owners based on various criteria.
-
 - **Data Validation and Integrity**: Ensure data accuracy and consistency through validation checks and data integrity constraints.
