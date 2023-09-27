@@ -19,6 +19,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	compileOnly 'org.projectlombok:lombok' // Add Lombok
+	annotationProcessor 'org.projectlombok:lombok' // Annotation processor for Lombok
+
+	// Add MariaDB Connector/J dependency
+	implementation 'org.mariadb.jdbc:mariadb-java-client' // Replace with the desired version
 }
 
 tasks.named('test') {
