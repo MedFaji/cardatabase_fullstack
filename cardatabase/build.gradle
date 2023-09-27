@@ -20,9 +20,11 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+
 	compileOnly 'org.projectlombok:lombok' // Add Lombok
 	annotationProcessor 'org.projectlombok:lombok' // Annotation processor for Lombok
 
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	// Add MariaDB Connector/J dependency
 	implementation 'org.mariadb.jdbc:mariadb-java-client' // Replace with the desired version
 }
