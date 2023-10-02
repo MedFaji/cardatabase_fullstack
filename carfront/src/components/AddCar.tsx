@@ -6,6 +6,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { Car } from "../types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addCar } from "../api/carapi";
+import { Button } from "@mui/material";
+import CarDialogContent from "./CarDialogContent";
 
 const AddCar = () => {
   const [open, setOpen] = useState(false);
@@ -58,60 +60,17 @@ const AddCar = () => {
   });
 
   return (
-    <>
-      <button onClick={handleClickOpen}>New Car</button>
+    <div>
+      <Button onClick={handleClickOpen}>New Car</Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>New car</DialogTitle>
-        <DialogContent>
-          <input
-            placeholder="Brand"
-            name="brand"
-            value={car.brand}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            placeholder="Model"
-            name="model"
-            value={car.model}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            placeholder="Color"
-            name="color"
-            value={car.color}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            placeholder="Year"
-            name="modelYear"
-            value={car.modelYear}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            placeholder="Reg.nr"
-            name="registerNumber"
-            value={car.registerNumber}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            placeholder="Price"
-            name="price"
-            value={car.price}
-            onChange={handleChange}
-          />
-          <br />
-        </DialogContent>
+        <DialogTitle>Add car</DialogTitle>
+        <CarDialogContent car={car} handleChange={handleChange} />
         <DialogActions>
-          <button onClick={handleClose}>Cancel</button>
-          <button onClick={handleSave}>Save</button>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleSave}>Save</Button>
         </DialogActions>
       </Dialog>
-    </>
+    </div>
   );
 };
 
