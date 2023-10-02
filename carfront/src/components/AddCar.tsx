@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
+import Button from '@mui/material/Button';
 import DialogTitle from "@mui/material/DialogTitle";
 import { Car } from "../types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addCar } from "../api/carapi";
-import { Button } from "@mui/material";
+
 import CarDialogContent from "./CarDialogContent";
 
 const AddCar = () => {

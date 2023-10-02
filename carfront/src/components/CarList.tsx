@@ -1,10 +1,17 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCar, getCars } from "../api/carapi";
-import { DataGrid, GridCellParams, GridColDef, GridToolbar} from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridCellParams,
+  GridColDef,
+  GridToolbar,
+} from "@mui/x-data-grid";
 import Snackbar from "@mui/material/Snackbar";
 import { useState } from "react";
 import AddCar from "./AddCar";
 import EditCar from "./EditCar";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Carlist = () => {
   const [open, setOpen] = useState(false);
@@ -34,33 +41,32 @@ const Carlist = () => {
     { field: "modelYear", headerName: "Model Year", width: 150 },
     { field: "price", headerName: "Price", width: 150 },
     {
-        field: 'edit',
-        headerName: '',
-        width: 90,
-        sortable: false,
-        filterable: false,
-        disableColumnMenu: true,
-        renderCell: (params: GridCellParams) => 
-          <EditCar cardata={params.row} />
-      },
+      field: "edit",
+      headerName: "",
+      width: 90,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
+      renderCell: (params: GridCellParams) => <EditCar cardata={params.row} />,
+    },
     {
       field: "delete",
       headerName: "",
       width: 90,
-
       sortable: false,
       filterable: false,
       disableColumnMenu: true,
-
       renderCell: (params: GridCellParams) => (
-        <button
+        <IconButton
+          aria-label="delete"
+          size="small"
           onClick={() => {
             if (window.confirm("Are you sure to delete?"))
               mutate(params.row._links.car.href);
           }}
         >
-          Delete
-        </button>
+          <DeleteIcon fontSize="small" />
+        </IconButton>
       ),
     },
   ];
