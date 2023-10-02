@@ -3,6 +3,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Carlist from "./components/CarList";
+
+const queryClient = new QueryClient();
+
 function App() {
   return (
     <Container maxWidth="xl">
@@ -12,6 +17,9 @@ function App() {
           <Typography variant="h6">Carshop</Typography>
         </Toolbar>
       </AppBar>
+      <QueryClientProvider client={queryClient}>
+        <Carlist />
+      </QueryClientProvider>
     </Container>
   );
 }
