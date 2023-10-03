@@ -14,7 +14,8 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const Carlist = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); //for the delete Snackbar
+
   const queryClient = useQueryClient();
 
   const { data, error, isSuccess } = useQuery({
@@ -71,10 +72,11 @@ const Carlist = () => {
     },
   ];
 
+  //Start the redring process
   if (!isSuccess) {
     return <p>Loading...</p>;
   } else if (error) {
-    <p>Error while fetching cars...</p>;
+    return <p>Error while fetching cars...</p>;
   } else {
     return (
       <>

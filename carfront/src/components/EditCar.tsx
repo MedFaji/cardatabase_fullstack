@@ -13,7 +13,9 @@ type FormProps = {
 };
 
 const EditCar = ({ cardata }: FormProps) => {
+    
   const queryClient = useQueryClient();
+
   // Use useMutation hook
   const { mutate } = useMutation(updateCar, {
     onSuccess: () => {
